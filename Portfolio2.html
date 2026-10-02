@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Porfile Potfolio</title>
+    <style>
+        *{
+            padding: 0px;
+            margin: 0px;
+            box-sizing: border-box;
+        }
+        body{
+            background-color: #1e1e1e;
+            font-family: sans-serif;
+            color: #a0a0a0;
+            line-height: 1.9;
+        }
+        .main-container{
+            display: grid;
+            max-width: 1200px;
+            grid-template-columns: 350px 1fr;
+            gap: 50px;
+            padding-top: 40px;
+            margin: auto;
+        }
+        .sidebar{
+            height: 90vh;
+            background-color: #2a2a2a;
+            border:1px solid #3a3a3a;
+            border-radius: 16px;
+           /* padding: 30px;
+            position: sticky;
+            top: 40px;*/
+            padding: 40px;
+            position: sticky;
+            top: 40px;
+
+
+        }
+        .main-content{
+          
+            background-color: #2a2a2a;
+             border:1px solid #3a3a3a;
+            border-radius: 16px;
+            padding: 40px;
+            
+        }
+
+        /*  PROFILE */
+
+        .profile{
+            text-align: center;
+        }
+        .profile img {
+            height: 120px;
+            width: 120px;
+            border-radius: 50px;
+            border: 1px solid #3a3a3a; 
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+          
+        }
+        .profile img:hover{
+           transform: scale(2.1);
+            box-shadow: 0px 0px 10px 5px rgba(197, 189, 188, 0.3);
+             /* transition: transform 0.3s ease, boxshadow 0.3s ease;*/
+
+        }
+        .profile h2{
+            font-size: 1.5rem;
+            font-weight: 900;
+            margin-top: 20px;
+            color: #e0e0e0;
+        }
+        .profile p{
+            background-color: #1e1e1e;
+            padding: 5px 15px;
+            color: #ffbf00;
+            border: 1px solid #3a3a3a;
+            font-size: 0.rem;
+            border-radius: 8px;
+            display: inline-block;
+            margin-top: 10px;
+        }
+        .contact{
+            margin: 30px;
+            border-top:2px solid #3a3a3a ;
+            padding-top:20px ;
+        }
+        .label{
+            font-weight: 700;
+            font-size: 0.rem;
+            color: #a0a0a0;
+        }
+        .value{
+            color: #e0e0e0;
+            text-decoration: none;
+           
+        }
+        .email,.phone,.location{
+            margin-bottom: 14px;
+        }
+        .social{
+            margin: 30px;
+            border-top:2px solid #3a3a3a ;
+            padding-top:20px ;
+            text-align: center;
+        }
+        .social img{
+            height: 30px;
+            width:50px;
+            margin: 5px;
+            filter: grayscale(1) invert(0.9);
+            transition: filter 0.2s ease;
+        }
+        .social img:hover{
+            filter: grayscale(0) invert(0);
+            margin: 30px;
+            border-top:2px solid #bd3939 ;
+            padding-top:0px ;
+            text-align: center;
+        }
+        
+        /* main content*/
+
+        .navigation{
+           
+            border-bottom: 2px solid #3a3a3a;
+            margin-bottom: 20px;
+            padding-bottom: 20px;
+
+            
+        }
+        nav{
+            display: flex;
+            justify-content: flex-end;
+            gap: 40px;
+        }
+        nav a{
+            text-decoration: none;
+            color: #a0a0a0;
+            font-weight: 400;
+            transition: color 0.3 ease;
+            
+            
+        }
+        .active, nav a:hover{
+            color: #ffbf00;
+
+        }
+        .heading{
+            color: #f1eded;
+           font-size: 2rem;
+            margin-bottom: 15px;
+            ;
+        }
+        .Line{
+            width: 150px;
+            height: 5px;
+            background-color: #ffbf00;
+            margin-bottom: 15px;
+            
+        }
+        .content{
+            text-align: justify;
+            color: #e6e2e2;
+        }
+        #about{
+            margin-bottom: 40px;
+        }
+
+        /* skills section*/
+
+        .grid-container{
+           display:flex;
+            grid-template-columns: repeat(auto-fit , minmax(120px));
+            gap: 40px;
+            
+        }
+        .item{
+            padding: 20px;
+            border-radius: 30px;
+            border: 2px solid #3a3a3a;;
+            background-color: #1e1e1e;
+            text-align: center;
+            margin-top:20px ;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .item img{
+            height: 60px;
+            width: 90px;
+            filter: invert(75%) sepia(50%) saturate(1000%) hue-rotate(350deg) brightness(110%) contrast(101%);
+            margin-bottom: 15px;
+        }
+        .item h3{
+            font-size: 1rem;
+            font-weight: 500;
+        }
+        .item:hover{
+            transform: scale(1.3);
+            box-shadow: 0px 0px 10px 5px rgba(231, 5, 5, 0.3);
+        }
+        .education{
+            margin-top: 30px;
+          /*  border-bottom: 2px solid #3a3a3a;
+            margin-bottom: 20px;
+            padding-bottom: 20px;*/
+        }
+
+        .edtech{
+            position: relative;
+            margin-top: 40px;
+        }
+       
+        .year{
+            font-size: 0.9rem;
+            color: #a0a0a0;
+            margin-bottom: 5px;
+
+        }
+
+        .degree{
+            color: #e0e0e0;
+            font-size: 1.2rem;
+            font-weight: 500;
+            margin-bottom: 5px;
+
+        }
+
+        .college{
+            font-style: italic;
+            color: #d9e075;
+            margin-bottom: 10px;
+        }
+
+        .work{
+            color: #cac8c8;
+        }
+
+        .edfirst, .edsecond{
+            margin-bottom: 30px;
+            padding-left: 40px;
+            position: relative;
+        }
+
+        .goal{
+            height: 17px;
+            width: 17px;
+            border: 5px solid #ffbe00;
+            border-radius: 50px;
+            position: absolute;
+            top: 5px;
+            left: 0px;
+            z-index: 10;
+        }
+
+        .liner{
+            position: absolute;
+            width: 2px;
+            top: 3px;
+            bottom: 0px;
+            left: 5px;
+            border: 3px solid #4e4e50;
+        }
+
+        /*PORTFOLIO*/
+        .poject-container{
+            margin-top: 30px;
+            padding: 20px;
+            display: flex;
+             grid-template-columns: 1fr 1fr ;
+            gap: 25px;
+        }
+        .project{
+            width: 305px;
+            background-color: #1e1e1e;
+            border-radius: 12px;
+            border: 2px solid #3a3939;
+           
+            transition: transform 0.6s ease, box-shadow 0.6s ease;
+
+        }
+        .project:hover{
+            transform: translatex(-30px);
+            box-shadow: 0px 0px 20px 15px rgba(212, 33, 27, 0.3);
+
+        }
+        .project img{
+            height: 200px;
+            width: 300px;
+            object-fit: cover;
+            border-radius: 12px;
+            
+            
+
+        }
+        .row1{
+            display: inline-flex;
+            gap: 50px;
+           
+        }
+        .row2{
+            display:inline-flex ;
+            gap: 60px;
+            padding: 30px;
+          
+            margin-left: -30px;
+            
+           
+           
+        }
+       
+       
+           
+        
+        .card{
+            padding: 30px;
+            margin-bottom: 10px;
+            text-align: center;
+           
+            
+        }
+        .card h3{
+            color: #e0e066;
+            margin-bottom: 20px;
+        }
+        .card p{
+            color: #f1efef;
+            line-height: 1.6;
+            text-align: start;
+            margin-bottom: 25px;
+        }
+
+        .card span{
+            background-color: rgba(167, 31, 26, 0.1);
+            color: #ffbe00;
+            padding: 4px 8px;
+            border-radius: 5px;
+            font-size: 1.09rem;
+            margin-right: 5px;
+        }
+
+        @media screen and (max-width:1200) {
+            .main-container{
+                grid-template-columns:1fr;
+                padding: 20px;
+            }
+            .sidebar{
+                position: static;
+                height: auto;
+            }
+
+            
+        }
+
+
+        
+
+    </style>
+</head>
+<body>
+    <div class="main-container">
+        <!--sidebar-->
+        <div class="sidebar">
+            <!--profile-->
+            <div class="profile">
+            <img src="./annu.jpeg" alt="">
+            <h2>Anubha Kumari</h2>
+            <p>Frontend Developer</p>
+        </div>
+        <!--contact-->
+        <div class="contact">
+            <div class="email"></div>
+            <h3 class="label">Email</h3>
+            <a href="mailto:anubhak45@gmail.com" class="value">anubhak45@gmail.com</a>
+            <div class="phone"></div>
+            <h3 class="label">Phone</h3>
+            <a href="tel:7491071630" class="value">7491071630</a>
+            <div class="location"></div>
+            <h3 class="label" >Location</h3>
+            <p class="value">Arrah,BIHAR</p>
+        </div>
+        <!--social-->
+        <div class="social">
+            <a href="https://github.com/Anubha-12"><img src="https://simpleicons.org/icons/github.svg" alt=""></a>
+            <a href=""><img src="https://simpleicons.org/icons/git.svg" alt=""></a>
+            <a href="https://www.linkedin.com/in/anubha-kumari-a268883a6?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"><img src="https://www.svgrepo.com/show/204944/linkedin.svg" alt=""></a>
+            
+        </div>
+        </div>
+
+        <div class="main-content">
+             <!--navigation-->
+            <div class="navigation">
+                <nav>
+                    <a href="#about"  class="active">About</a>
+                    <a href="#skills">Skills</a>
+                    <a href="#Education">Education</a>
+                    <a href="#Portfolio">Portfolio</a>
+                </nav>
+            </div>
+
+            <!--about me-->
+            <div id="about">
+                <h2 class="heading">About Me </h2>
+                <div class="Line"></div>
+                <p class="content">I am Anubha Kumari, a second-year B.Tech student in Computer Science and Engineering. I am passionate about learning new technologies and building a strong foundation in programming and computer science concepts.
+Currently, I am exploring core subjects of CSE and developing my skills in programming, problem-solving, and logical thinking. I am eager to learn, grow, and gain practical experience through projects, internships, and collaborative learning.
+I am open to opportunities that help me enhance my technical skills and prepare for a successful career in the tech industry.</p>
+
+            </div>
+
+            <!--skills-->
+            <div id="skills">
+                <h2 class="heading">Skills </h2>
+                <div class="Line"></div>
+                <div class="grid-container">
+                    <div class="item">
+                        <img src="https://simpleicons.org/icons/html5.svg" alt="">
+                        <h3>HTML5</h3>
+                    </div>
+                    <div class="item">
+                        <img src="https://simpleicons.org/icons/css.svg" alt="">
+                        <h3>CSS3</h3>
+                    </div>
+                    <div class="item">
+                        <img src="https://simpleicons.org/icons/python.svg" alt="">
+                        <h3>PYTHON</h3>
+                    </div>
+                    <div class="item">
+                        <img src="https://simpleicons.org/icons/figma.svg">
+                        <h3>UI</h3>
+                    </div>
+                    <div class="item">
+                        <img src="https://simpleicons.org/icons/git.svg" alt="">
+                        <h3>Git & Github</h3>
+                    </div>
+                    <div class="item">
+                        <img src="https://simpleicons.org/icons/typescript.svg" alt="">
+                        <h3>Typescript</h3>
+                    </div>
+                </div>
+            </div>
+
+
+            <!--education-->
+            <div id="Education">
+                <h2 class="heading">Education </h2>
+                <div class="Line"></div>
+                <div class="edtech">
+                <div class="edfirst">
+                <div class="year">2025-2029</div>
+                <h3 class="degree">bachelor of computer science Engineering</h3>
+                <p class="college">CGC University Mohali</p>
+                <p class="work"> Focused on learning Algorithms, Computer Network and Operating system, web technologies and currently Completed a project on building a responsive e-commerce platform </p>
+                <div class="goal"></div>
+                </div>
+                <div class="edsecond">
+                <div class="year">2022-2024</div>
+                <h3 class="degree">Non-Medical</h3>
+                <p class="college">N.Jha Mahila college</p>
+                <p class="work">Interested in technology and how it work. i am curious, hardworking and always eager to learn new things and develop my skills</p>
+                <div class="goal"></div>
+                </div>
+
+                <div class="liner"></div>
+                </div>
+                
+                
+            </div>
+
+             <!--portfolio-->
+             <div class="portfolio">
+                <h2 class="heading">Portfolio </h2>
+                <div class="Line"></div>
+
+                <div class="project-container">
+                    <div class="row1">
+                        <div class="project">
+                        <img src="https://cdn.pixabay.com/photo/2017/08/10/08/47/laptop-2620118_1280.jpg" alt="">
+                        <div class="card">
+                            <h3>E-commerce Website</h3>
+                            <p> A fully online store built modern design principles.</p>
+                            <span> HTML</span><span>CSS</span>
+                        </div>
+                    </div>
+                    
+                       <div class="project"><img src="https://cdn.pixabay.com/photo/2025/09/09/08/52/design-9824072_1280.jpg" alt="">
+                    
+                        <div class="card">
+                            <h3>Analytics Dashboard UI</h3>
+                            <p>A data visualization dashboard UI created with CSS grid.</p>
+                            <span>Grid</span><span>UI/UX</span>
+                        </div>
+                    </div>
+                    <div class="project">
+                        <img src="https://media.istockphoto.com/id/1979289147/photo/data-analysis-science-and-big-data-with-ai-technology-analyst-or-scientist-uses-a-computer.jpg?s=1024x1024&w=is&k=20&c=WqGfiIeod3kNA5XFFRRa0w5uhoL3c2PfxoWYNXfvl68=" alt="">
+                        <div class="card">
+                            <h3>Business Landing Page</h3>
+                            <p>A sleek single-page site for a corporate client to generate leads </p>
+                            <span> HTML</span><span>CSS</span><span>Flexbox</span>
+                        </div>
+                    </div>
+                    </div>
+                    <div class="row2">
+                        
+                    <div class="project">
+                        <img src="https://media.istockphoto.com/id/1042016616/photo/artist-working-at-coffee-shop.jpg?s=1024x1024&w=is&k=20&c=7HZyHCd6CXqv-vOD2P_dBeq7oc5MXsUMvyxOlsdnGzY=" alt="">
+                        <div class="card">
+                            <h3>Sketching & Illustration</h3>
+                            <p>Hand-drawn artwork exploring portraits, nature, consepts and different Illustration styles</p>
+                            <span> SKETCHING</span><span>Illustration</span>
+                        </div>
+                    </div> 
+                        
+                       
+                        <div class="project"><img src="https://cdn.pixabay.com/photo/2023/03/13/18/55/robin-7850566_1280.jpg" alt="">
+                        <div class="card">
+                            <h3>Personal Blog Theme </h3>
+                            <p> A clean, content-focused blog Theme designed for reusebility</p>
+                            <span> HTML</span><span>CSS</span>
+                        
+                </div>
+
+             </div>
+            
+            </div>
+
+              
+
+
+
+
+
+
+
+             
+        </div>
+    </div>
+</body>
+</html>
